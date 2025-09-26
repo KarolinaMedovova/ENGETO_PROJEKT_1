@@ -1,10 +1,19 @@
 ukoly = []
-cislovane_ukoly = []    #musí být jiný náazev. ocislovane_ukoly je proměnná, stejný mázev nemůžu mít pro seznam !!!
+ocislovany_seznam_ukolu = []    #musí být jiný náazev. ocislovane_ukoly je proměnná, stejný mázev nemůžu mít pro seznam !!!
+nazvy_ukolu = []
+popisy_ukolu = []
 
 def hlavni_menu():
     print("Správce úkolů - Hlavní menu\n1. Přidat nový úkol\n2. Zobrazit všechny úkoly\n3. Odstranit úkol\n4. Konec programu")
     
 hlavni_menu()
+
+def ocislovat_ukoly():
+    for index, ukol in enumerate(ukoly, start=1):
+        print(f"{index}. {ukol}")
+    print(" ")
+    ocislovane_ukoly = (f"{index}. {ukol}")
+    ocislovany_seznam_ukolu.append(ocislovane_ukoly)
 
 def pridat_ukol():
     print(" ")
@@ -23,9 +32,15 @@ def pridat_ukol():
     print(f"Úkol '{nazev_ukolu}' byl přidán.")
     print(" ")
     hlavni_menu()
-
     ukoly.append(f"{nazev_ukolu} - {popis_ukolu}")
-
+"""   
+    nazvy_ukolu.append(nazev_ukolu)
+    popisy_ukolu.append(popis_ukolu)
+    
+    for index, ukol in enumerate(ukoly, start=1):
+        ocislovane_ukoly = (f"{index}. {ukol}")
+        ocislovany_seznam_ukolu.append(ocislovane_ukoly)
+"""
 
 def zobrazit_ukoly():
     print(" ")
@@ -35,30 +50,25 @@ def zobrazit_ukoly():
     print(" ")
     hlavni_menu()
 
-#def ocislovat_ukoly():
-#   for index2, ukol2 in enumerate(ukoly, start=1):
-#      return [f"{index2}. {ukol2}" for index2, ukol2 in enumerate(ukoly, start=1)]
-    print(" ")
-
 def odstranit_ukol():
     print(" ")
     print("Seznam úkolů:")
     for index, work in enumerate(ukoly, start=1):
         ocislovane_ukoly = (f"{index}. {work}")
         print(ocislovane_ukoly)
+    ocislovany_seznam_ukolu.append(ocislovane_ukoly)
     print(" ")
     task_number = int(input("Zadejte číslo úkolu, který chcete odstranit: "))
 
-    # cislovane_ukoly.append(ocislovane_ukoly)  tohle je blbost. mi zobrazí špatný ukol
-    # print(cislovane_ukoly)
-    
     while type(task_number) is not int or task_number <1: #or task_number == "" or task_number.isspace():
         print("Bylo zadáno neexistující číslo úkolu.")
         task_number = int(input("Zadejte číslo úkolu, který chcete odstranit: "))
 
-    index = task_number - 1
-    task_delete = ocislovane_ukoly.pop(f"task_number")
-    print(f"Úkol '{task_delete}' byl odstraněn.")
+    task_index = int(task_number) -1
+    odstraneny = ukoly.pop(task_index)
+    nazev = odstraneny.split(" – ")[0]
+
+    print(f"Úkol '{nazev}' byl odstraněn.")
     print(" ")
     print("Správce úkolů - Hlavní menu\n1. Přidat nový úkol\n2. Zobrazit všechny úkoly\n3. Odstranit úkol\n4. Konec programu")
 
