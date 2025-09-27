@@ -1,7 +1,8 @@
 ukoly = []
-ocislovany_seznam_ukolu = []    #musí být jiný náazev. ocislovane_ukoly je proměnná, stejný mázev nemůžu mít pro seznam !!!
+ocislovany_seznam_ukolu = []
 nazvy_ukolu = []
 popisy_ukolu = []
+nazev_a_popis_ukolu = []
 
 def hlavni_menu():
     print("Správce úkolů - Hlavní menu\n1. Přidat nový úkol\n2. Zobrazit všechny úkoly\n3. Odstranit úkol\n4. Konec programu")
@@ -33,6 +34,7 @@ def pridat_ukol():
     print(" ")
     hlavni_menu()
     ukoly.append(f"{nazev_ukolu} - {popis_ukolu}")
+    nazev_a_popis_ukolu.append(nazev_ukolu+" - "+popis_ukolu)
 """   
     nazvy_ukolu.append(nazev_ukolu)
     popisy_ukolu.append(popis_ukolu)
@@ -66,7 +68,7 @@ def odstranit_ukol():
 
     task_index = int(task_number) -1
     odstraneny = ukoly.pop(task_index)
-    nazev = odstraneny.split(" – ")[0]
+    nazev = odstraneny.split(" - ")[0]
 
     print(f"Úkol '{nazev}' byl odstraněn.")
     print(" ")
