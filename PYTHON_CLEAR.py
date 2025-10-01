@@ -28,7 +28,7 @@ def pridat_ukol():
 def zobrazit_ukoly():
     print(" ")
     if not ukoly:
-        print("Seznam úkolů je prázndý.")
+        print("Seznam úkolů je prázdný.")
         print(" ")
         return
     
