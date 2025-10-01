@@ -27,6 +27,11 @@ def pridat_ukol():
 
 def zobrazit_ukoly():
     print(" ")
+    if not ukoly:
+        print("Seznam úkolů je prázndý.")
+        print(" ")
+        return
+    
     print("Seznam úkolů:")
     for index, ukol in enumerate(ukoly, start=1):
         print(f"{index}. {ukol}")
@@ -34,9 +39,15 @@ def zobrazit_ukoly():
     hlavni_menu()
 
 def odstranit_ukol():
+    if not ukoly:
+        print(" ")
+        print("Seznam úkolů je prázdný. Prosím, zadejte možnost 1 nebo 4.")
+        print(" ")
+        hlavni_menu()
+        return
     print(" ")
     print("Seznam úkolů:")
-    for index, work in enumerate(ukoly, start=1):
+    for index, work in enumerate(ukoly, start=1): 
         ocislovane_ukoly = (f"{index}. {work}")
         print(ocislovane_ukoly)
     ocislovany_seznam_ukolu.append(ocislovane_ukoly)
