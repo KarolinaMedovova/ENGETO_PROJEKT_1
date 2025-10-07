@@ -23,5 +23,5 @@ Konec programu
 Pokud uživatel zadá volbu 4 v hlavním menu program se ukončí.
 
 
-Odkaz na zadání obsahující obrázky : 
+Vizuální podoba řešení je dostupná v odkazu na zadání : 
 https://portal.engeto.com/study/66b037ba-0076-4a14-8506-d44c69a603d8/project/08b9a647-5e5c-488a-adbb-e6ad32be9838/assignment
