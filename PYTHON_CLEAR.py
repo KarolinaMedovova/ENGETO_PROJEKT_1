@@ -23,46 +23,48 @@ def pridat_ukol():
     ukoly.append(f"{nazev_ukolu} - {popis_ukolu}")
 
 
-def zobrazit_ukoly():
-    print(" ")
-    if not ukoly:
-        print("Seznam úkolů je prázdný.")
-        return
-    
+def tasks_list():
     print("Seznam úkolů:")
     for index, ukol in enumerate(ukoly, start=1):
         print(f"{index}. {ukol}")
 
 
-def odstranit_ukol():#
+def zobrazit_ukoly():
+    print(" ")
+    if not ukoly:
+        print("Seznam úkolů je prázdný. Prosím, zadejte možnost 1 nebo 4.")
+        return
+    
+    tasks_list()
+
+
+def odstranit_ukol():
     if not ukoly:
         print(" ")
         print("Seznam úkolů je prázdný, žádný úkol nelze odstranit. Prosím, zadejte možnost 1 nebo 4.")
         return
     print(" ")
-    print("Seznam úkolů:")
-    for index, work in enumerate(ukoly, start=1): 
-        ocislovane_ukoly = (f"{index}. {work}")
-        print(ocislovane_ukoly)
+    tasks_list()
     print(" ")
-
-    task_number = input("Zadejte číslo úkolu, který chcete odstranit. (Pro návrat do hlavního menu zadejte 'x'.): ")
-    if task_number == "x":
-        return
-    elif not task_number.isdigit() or int(task_number) < 1 or int(task_number) > len(ukoly):
-        print("Bylo zadáno neexistující číslo úkolu.")
-        task_number = input("Zadejte číslo úkolu, který chcete odstranit: ")
     
-    task_index = int(task_number) -1
-    odstraneny = ukoly.pop(task_index)
-    nazev = odstraneny.split(" - ")[0]
-    print(f"Úkol '{nazev}' byl odstraněn.")
-
+    while True:
+        task_number = input("Zadejte číslo úkolu, který chcete odstranit. (Pro návrat do hlavního menu zadejte 'x'.): ")
+        if task_number.lower() == "x":
+            return
+        elif task_number.isdigit() and int(task_number) >= 1 and int(task_number) <= len(ukoly):
+            task_index = int(task_number) -1
+            odstraneny = ukoly.pop(task_index)
+            nazev = odstraneny.split(" - ")[0]
+            print(f"Úkol '{nazev}' byl odstraněn.")
+            return
+        else:
+            print("Bylo zadáno neexistující číslo úkolu.")
+   
 
 def konec_programu():
     print(" ")
     print("Konec programu.")
-
+    
 
 while True:
     hlavni_menu()
