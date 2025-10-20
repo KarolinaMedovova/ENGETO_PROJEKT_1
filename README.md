@@ -19,7 +19,7 @@ def odstranit_ukol()
 Tato funkce má uživateli umožnit zadat číslo úkolu, který chce odstranit, a tento úkol odstranit. Zde platí volba 3 v hlavním menu. Po odstranění úkolu program pokračuje dál nabídkou hlavního menu. Zde je potřeba, aby uživatel viděl všechny uložené úkoly a při výběru neexistujícího úkolu byl upozorněn.
 
 
-Konec programu
+def konec_programu()
 Pokud uživatel zadá volbu 4 v hlavním menu program se ukončí.
 
 
