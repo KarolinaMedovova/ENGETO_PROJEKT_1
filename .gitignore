@@ -1,6 +1,7 @@
 # Ignoruj cache
 __pycache__/
 *.pyc
+**/cache/
 
 # Ignoruj logy a zálohy
 *.log
